@@ -3,8 +3,6 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
 import Navbar from "@/components/Navbar";
-import ReportsNavbar from "@/components/Navbars/ReportsNavbar";
-import SPORNavbar from "@/components/Navbars/SPORNavbar";
 
 
 export const metadata: Metadata = {
