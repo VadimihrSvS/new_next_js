@@ -1,5 +1,4 @@
 import Main from "../../components/Main";
-import { redirect } from "next/navigation"
 import MUMGHour from "../../components/Content/ReportContent/MUMGHour";
 
 const Reports = () => {

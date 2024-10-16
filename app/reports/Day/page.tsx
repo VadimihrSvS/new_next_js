@@ -1,4 +1,3 @@
-import Navbar from "../../../components/Navbar"
 import Main from "../../../components/Main";
 import MUMGDay from "../../../components/Content/ReportContent/MUMGDay";
 
