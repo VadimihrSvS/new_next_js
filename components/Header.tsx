@@ -15,7 +15,7 @@ function Header() {
           <div className="date__time"></div>
         </a>
         <div className="header__titles titles-header">
-          <div className="titles-header__title"><Link href='/reports'>Доклады</Link></div>
+          <div className="titles-header__title"><Link href='/MUMG'>Доклады</Link></div>
           <div className="titles-header__title"><Link href='/SPOR'>СПОР</Link></div>
         </div>
 

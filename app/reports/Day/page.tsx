@@ -1,14 +1,13 @@
 import Navbar from "../../../components/Navbar"
 import Main from "../../../components/Main";
-import OperationalSummary from "../../../components/Content/ReportContent/OperationalSummary";
+import MUMGDay from "../../../components/Content/ReportContent/MUMGDay";
 
 
 const Reports = () => {
     return (
         <>
-            <Navbar />
             <Main>
-                <OperationalSummary />
+                <MUMGDay />
             </Main>
         </>
     )

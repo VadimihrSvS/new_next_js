@@ -32,7 +32,9 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "pages/api/createUser.js"
+    "pages/api/createUser.js",
+    "store/webStorage.js",
+    "store/authSlice.ts"
   ],
   "exclude": [
     "node_modules"

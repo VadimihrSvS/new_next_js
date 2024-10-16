@@ -1,4 +1,7 @@
+'use client'
+
 import React from 'react';
+import dynamic from 'next/dynamic'
 
 const Main = ({ children }) => {
     return (
@@ -10,4 +13,6 @@ const Main = ({ children }) => {
 }
 
 
-export default Main;
+export default dynamic(() => Promise.resolve(Main), {
+    ssr: false
+}) // ssr выключен!
