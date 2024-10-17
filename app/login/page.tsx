@@ -1,12 +1,15 @@
-import LoginScreen from "@/components/Content/LoginScreen"
+"use client"
+
+import Auth from "@/components/Content/Auth"
 import Main from "@/components/Main"
+import ReduxProvider from "@/store/redux-provider"
 
 const Login = () => {
     return (
         <>
-            <Main>
-                <LoginScreen />
-            </Main>
+            <ReduxProvider>
+                <Auth />
+            </ReduxProvider>
         </>
     )
 }

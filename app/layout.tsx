@@ -10,7 +10,6 @@ export const metadata: Metadata = {
 };
 
 
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -20,8 +19,8 @@ export default function RootLayout({
     <html lang="en" >
       {/* <body suppressHydrationWarning={true}> */}
       <body>
-        <Navbar></Navbar>
-        <Header></Header>
+      <Navbar></Navbar>
+      <Header></Header>
         {children}
       </body>
     </html>
