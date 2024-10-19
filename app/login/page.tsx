@@ -1,16 +1,14 @@
 "use client"
 
-import Auth from "@/components/Content/Auth"
-import Main from "@/components/Main"
+// import Auth from "@/components/Content/Auth"
 import ReduxProvider from "@/store/redux-provider"
 
 const Login = () => {
     return (
-        <>
-            <ReduxProvider>
-                <Auth />
-            </ReduxProvider>
-        </>
+        <ReduxProvider>
+            <></>
+            {/* <Auth /> */}
+        </ReduxProvider>
     )
 }
 

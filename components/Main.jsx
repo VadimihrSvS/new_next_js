@@ -10,9 +10,9 @@ const Main = ({ children }) => {
     return (
         <main className="page">
             <ReduxProvider>
-            <div className='content'>
-                {children}
-            </div>
+                <div className='content'>
+                    {children}
+                </div>
             </ReduxProvider>
         </main>);
 }

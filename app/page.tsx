@@ -1,21 +1,16 @@
 'use client'
 
-import Main from "../components/Main";
 import ReduxProvider from "@/store/redux-provider";
-import AuthUpdater from "@/components/auth-updater";
-import AuthViewer from "@/components/auth-viewer";
+import MainPage from "@/components/Content/MainPage";
 
-const Reports = () => {
+const RootPage = () => {
 
   return (
     <ReduxProvider>
-      <Main>
-        <AuthUpdater />
-        <AuthViewer />
-      </Main>
+      <MainPage />
     </ReduxProvider>
   );
 
 }
 
-export default Reports
+export default RootPage

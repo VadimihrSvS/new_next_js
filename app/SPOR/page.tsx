@@ -7,7 +7,6 @@ const SPOR = () => {
 
     return (
         <>
-            <Navbar />
             <Main>
                 <CurrentWorks />
             </Main>

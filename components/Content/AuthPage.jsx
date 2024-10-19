@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react';
-import { useAppSelector } from "@/lib/store";
+import { useAppDispatch, useAppSelector } from "@/lib/store";
 // import { useDispatch, useSelector, useStore } from 'react-redux'
 // import { setToken, setUser } from './IsAuthSlice';
 // import { redirect, useNavigate } from 'react-router-dom';
@@ -9,10 +9,11 @@ import { useAppSelector } from "@/lib/store";
 // import { jwtDecode } from 'jwt-decode';
 import './auth.css'
 import dynamic from 'next/dynamic';
+import { setAuthState } from '@/store/authSlice';
 
 
 
-const Auth = () => {
+const AuthPage = () => {
 
     // const dispatch = useDispatch()
     // const isAuth = useSelector(value => value.token.value)
@@ -23,8 +24,7 @@ const Auth = () => {
     //         navigate('/');
     //     }
     // }, []);
-    const authState = useAppSelector((state) => state.auth.authState);
-
+    const dispatch = useAppDispatch()
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
     const [errMessage, setErrMessage] = useState("");
@@ -36,31 +36,42 @@ const Auth = () => {
     const [regPassword, setRegPassword] = useState("");
     const [regConfPassword, setRegConfPassword] = useState("");
 
-    // const checkUser = async (auth) => {
-    //     try {
-    //         if (auth) {
-    //             const token = await login(userName, password)
-    //             if (token.status === 200) {
-    //                 const decoded = jwtDecode(token.data.token)
-    //                 dispatch(setToken(token.data.token));
-    //                 dispatch(setUser({ username: decoded.name, role: decoded.role, first_name: decoded.first_name, last_name: decoded.last_name }))
-    //                 navigate('/reports')
-    //             }
-    //         } else {
-    //             const token = await registration(surname, regPassword, regConfPassword, first_name, last_name, group)
-    //             if (token.status === 200) {
-    //                 setErrMessage("Запрос отправлен");
-    //             }
-    //         }
-    //     } catch (e) {
-    //         console.log(e)
-    //         setErrMessage(e.response.data.message)
-    //     }
-    // }
+    const checkUser = async (auth) => {
+        dispatch(setAuthState(true));
+        // try {
+        //     if (auth) {
+        //         const token = await login(userName, password)
+        //         if (token.status === 200) {
+        //             const decoded = jwtDecode(token.data.token)
+        //             dispatch(setToken(token.data.token));
+        //             dispatch(setUser({ username: decoded.name, role: decoded.role, first_name: decoded.first_name, last_name: decoded.last_name }))
+        //             navigate('/reports')
+        //         }
+        //     } else {
+        //         const token = await registration(surname, regPassword, regConfPassword, first_name, last_name, group)
+        //         if (token.status === 200) {
+        //             setErrMessage("Запрос отправлен");
+        //         }
+        //     }
+        // } catch (e) {
+        //     console.log(e)
+        //     setErrMessage(e.response.data.message)
+        // }
+    }
 
     return (<div className='authpage'>
+        <style>
+            {`
+.header {
+  display: none;
+}
+
+.navbar {
+  display: none;
+} `}
+        </style>
         <div className="inputcontainer">
-            <div className="inputcontainer__logo">ДГ САВР {authState.toString()}</div>
+            <div className="inputcontainer__logo">ДГ САВР</div>
             <div className="inputcontainer__authreg">
                 <a className="authtext _chosen" href="#" onClick={(event) => {
                     document.getElementsByClassName(event.target.className)[0].classList.add("_chosen")
@@ -110,6 +121,6 @@ const Auth = () => {
     </div >)
 }
 
-export default dynamic(() => Promise.resolve(Auth), {
+export default dynamic(() => Promise.resolve(AuthPage), {
     ssr: false
 })
