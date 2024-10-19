@@ -8840,7 +8840,7 @@ h6 {
 .logo__image {
   width: 60px;
   height: 60px;
-  background: url("../img/logo.png");
+  background: url("../public/img/logo.png");
   background-size: cover;
   background-position: center;
 }

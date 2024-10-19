@@ -11,16 +11,18 @@ export const metadata: Metadata = {
 
 
 export default function RootLayout({
-  children,
+  children, navbar, header
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode,
+  navbar: React.ReactNode,
+  header: React.ReactNode
 }>) {
   return (
     <html lang="en" >
       {/* <body suppressHydrationWarning={true}> */}
       <body>
-      <Navbar></Navbar>
-      <Header></Header>
+        {header}
+        {navbar}
         {children}
       </body>
     </html>

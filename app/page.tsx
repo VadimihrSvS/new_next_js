@@ -7,14 +7,6 @@ import AuthViewer from "@/components/auth-viewer";
 
 const Reports = () => {
 
-  // return (
-  //   <>
-  //     <Main>
-  //       <DailyReport />
-  //     </Main>
-  //   </>
-  // )
-
   return (
     <ReduxProvider>
       <Main>

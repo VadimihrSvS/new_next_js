@@ -60,8 +60,8 @@ const Auth = () => {
 
     return (<div className='authpage'>
         <div className="inputcontainer">
-             <div className="inputcontainer__logo">ДГ САВР {authState.toString()}</div>
-           <div className="inputcontainer__authreg">
+            <div className="inputcontainer__logo">ДГ САВР {authState.toString()}</div>
+            <div className="inputcontainer__authreg">
                 <a className="authtext _chosen" href="#" onClick={(event) => {
                     document.getElementsByClassName(event.target.className)[0].classList.add("_chosen")
                     document.getElementsByClassName("inputcontainer__registr")[0].classList.add("_ishidden")

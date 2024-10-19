@@ -11,7 +11,7 @@
 *:before,
 *:after {
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html,
@@ -44,7 +44,7 @@ a {
 .lock body {
   overflow: hidden;
   -ms-touch-action: none;
-      touch-action: none;
+  touch-action: none;
 }
 
 .wrapper {
@@ -54,15 +54,15 @@ a {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   overflow: hidden;
 }
 
 [class*=__container] {
   max-width: 73.125rem;
   -webkit-box-sizing: content-box;
-          box-sizing: content-box;
+  box-sizing: content-box;
   margin: 0 auto;
   padding: 0 0.9375rem;
 }
@@ -78,26 +78,26 @@ a {
   top: 0;
   left: 0;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 [class*=-ibg_contain] img {
   -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 
 .authpage {
-    font-family: sf;
+  font-family: sf;
   color: white;
   height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   background: linear-gradient(93deg, rgb(12, 22, 86) 0%, rgb(121, 196, 242) 100%);
 }
 
@@ -110,31 +110,32 @@ a {
   background-color: black;
 }
 
-.no-webp .inputcontainer{
-  background: rgba(0, 0, 0, 0.5) url("/graph.jpg") center no-repeat fixed; }
+.no-webp .inputcontainer {
+  background: rgba(0, 0, 0, 0.5) url("../../public/img/graph.jpg") center no-repeat fixed;
+}
 
 .inputcontainer {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   background-size: cover;
   background-blend-mode: multiply;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
   height: 90%;
   width: 90%;
   border: 1px black solid;
   border-radius: 30px;
   padding-top: 30px;
-  background: rgba(0, 0, 0, 0.5) url("../../img/graph.jpg") center no-repeat fixed
+  background: rgba(0, 0, 0, 0.5) url("../../public/img/graph.jpg") center no-repeat fixed
 }
 
 .inputcontainer__authreg {
@@ -148,8 +149,8 @@ a {
   gap: 20px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   padding: auto;
 }
 
@@ -159,14 +160,14 @@ a {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   gap: 20px;
 }
 
 .inputcontainer__logo {
   -ms-grid-column-align: start;
-      justify-self: start;
+  justify-self: start;
 }
 
 .authtext {
@@ -210,11 +211,11 @@ a {
   background-size: 400%;
   z-index: -1;
   -webkit-filter: blur(5px);
-          filter: blur(5px);
+  filter: blur(5px);
   width: calc(100% + 4px);
   height: calc(100% + 4px);
   -webkit-animation: glowing 20s linear infinite;
-          animation: glowing 20s linear infinite;
+  animation: glowing 20s linear infinite;
   opacity: 1;
   -webkit-transition: opacity 0.3s ease-in-out;
   transition: opacity 0.3s ease-in-out;
@@ -327,12 +328,15 @@ a {
 }
 */
 
-.webp .inputcontainer{ background: rgba(0, 0, 0, 0.5) url(/graph.jpg) center no-repeat fixed; background-size: cover; }
+.webp .inputcontainer {
+  background: rgba(0, 0, 0, 0.5) url(../../public/img/graph.jpg) center no-repeat fixed;
+  background-size: cover;
+}
 
-.header{
+.header {
   display: none;
 }
 
-.navbar{
-  display:none;
+.navbar {
+  display: none;
 }
