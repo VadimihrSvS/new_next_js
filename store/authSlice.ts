@@ -5,7 +5,7 @@ export interface IAuthState {
 }
 
 const initialState: IAuthState = {
-    authState: false,
+    authState: Boolean(localStorage.getItem('token')), //! проверить, бьёт ошибку
 };
 
 export const authSlice = createSlice({

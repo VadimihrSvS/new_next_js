@@ -6,7 +6,6 @@ import { useAppSelector } from "@/lib/store";
 
 const MainPage = () => {
 
-  var isAuthorized = false;
   const authState = useAppSelector((state) => state.auth.authState);
 
   return (<>

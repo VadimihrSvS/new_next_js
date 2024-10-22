@@ -37,7 +37,8 @@ const AuthPage = () => {
     const [regConfPassword, setRegConfPassword] = useState("");
 
     const checkUser = async (auth) => {
-        dispatch(setAuthState(true));
+        localStorage.setItem('token', '1')
+        dispatch(setAuthState(localStorage.getItem('token')));
         // try {
         //     if (auth) {
         //         const token = await login(userName, password)

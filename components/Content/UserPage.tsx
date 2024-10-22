@@ -1,7 +1,6 @@
 'use client'
 
 import Main from "../Main";
-import ReduxProvider from "@/store/redux-provider";
 import AuthUpdater from "@/components/auth-updater";
 import AuthViewer from "@/components/auth-viewer";
 import Header from "@/components/Header";
@@ -14,12 +13,15 @@ const UserPage = () => {
 
     const dispatch = useAppDispatch();
 
+    const exit = () => {
+        localStorage.clear();
+        dispatch(setAuthState(Boolean(localStorage.getItem('token'))))
+    }
+
     return (
-        <ReduxProvider>
-            <Main>
-                <button onClick={() => { dispatch(setAuthState(false)) }}>EXIT</button>
-            </Main>
-        </ReduxProvider>
+        <Main>
+            <button onClick={exit}>EXIT</button>
+        </Main>
     );
 
 }
