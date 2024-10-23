@@ -12,7 +12,7 @@ const MainPage = () => {
   const dispatch = useAppDispatch()
 
   useEffect(() => {
-    dispatch(setAuthState(Boolean(localStorage.getItem('token'))));
+    dispatch(setAuthState(Boolean(localStorage.getItem('token')))); //check
   }, [])
 
   return (<>
