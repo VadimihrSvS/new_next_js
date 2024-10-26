@@ -11,8 +11,6 @@ export default async function handler(req, res) {
             },
         });
         res.status(201).json(result);
-    } else if (req.method === 'GET') {
-        return res.json({ message: "Hello world" })
     } else {
         res.status(405).json({ message: 'Method not allowed' });
     }
