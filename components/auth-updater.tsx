@@ -1,6 +1,6 @@
 'use client'
 import React from "react";
-import { setAuthState } from "@/store/authSlice";
+// import { setAuthState } from "@/store/authSlice";
 import { useAppDispatch } from "@/lib/store";
 
 
@@ -10,8 +10,8 @@ const AuthUpdater = () => {
 
     return (
         <div>
-            <button onClick={() => dispatch(setAuthState(true))}>Log in</button>
-            <button onClick={() => dispatch(setAuthState(false))}>Log out</button>
+            {/* <button onClick={() => dispatch(setAuthState(true))}>Log in</button>
+            <button onClick={() => dispatch(setAuthState(false))}>Log out</button> */}
         </div>
     );
 };
