@@ -1,13 +1,9 @@
 'use client'
 
 import Main from "../Main";
-import AuthUpdater from "@/components/auth-updater";
-import AuthViewer from "@/components/auth-viewer";
-import Header from "@/components/Header";
-import Navbar from "@/components/Navbar";
 import dynamic from "next/dynamic";
 import { useAppDispatch } from "@/lib/store";
-import { setAuthState } from "@/store/authSlice";
+import { setToken } from "@/store/tokenSlice";
 
 const UserPage = () => {
 
@@ -15,7 +11,8 @@ const UserPage = () => {
 
     const exit = () => {
         localStorage.clear();
-        dispatch(setAuthState(Boolean(localStorage.getItem('token'))))
+        const token = localStorage.getItem('token')!
+        dispatch(setToken(token))
     }
 
     return (

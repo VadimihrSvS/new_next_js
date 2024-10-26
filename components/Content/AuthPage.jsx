@@ -9,7 +9,7 @@ import { useAppDispatch, useAppSelector } from "@/lib/store";
 // import { jwtDecode } from 'jwt-decode';
 import './auth.css'
 import dynamic from 'next/dynamic';
-import { setAuthState } from '@/store/authSlice';
+import { setToken } from '@/store/tokenSlice';
 
 
 
@@ -38,7 +38,7 @@ const AuthPage = () => {
 
     const checkUser = async (auth) => {
         localStorage.setItem('token', '1')
-        dispatch(setAuthState(localStorage.getItem('token')));
+        dispatch(setToken(localStorage.getItem('token')));
         // try {
         //     if (auth) {
         //         const token = await login(userName, password)

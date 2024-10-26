@@ -2,8 +2,8 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { useDispatch, TypedUseSelectorHook, useSelector } from "react-redux";
 import { authReducer } from "@/store/authSlice";
 import { persistReducer } from "redux-persist";
-//import storage from "redux-persist/lib/storage";
 import createWebStorage from 'redux-persist/lib/storage/createWebStorage';
+import { tokenReducer } from "@/store/tokenSlice";
 
 const createNoopStorage = () => {
     return {
@@ -27,8 +27,15 @@ const authPersistConfig = {
     whitelist: ["authState"],
 };
 
+const tokenPersistConfig = {
+    key: "token",
+    storage: storage,
+    whitelist: ["tokenState"],
+};
+
 const rootReducer = combineReducers({
     auth: persistReducer(authPersistConfig, authReducer),
+    token: persistReducer(tokenPersistConfig, tokenReducer)
 });
 
 export const store = configureStore({
