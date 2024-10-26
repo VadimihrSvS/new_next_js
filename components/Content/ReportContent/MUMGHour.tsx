@@ -5,7 +5,7 @@ export default function MUMGHour() {
 
     const [name, setUser] = useState("");
     const doIt = async () => {
-        const res = await fetch('api/createUser', {
+        const res = await fetch('/api/createUser', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
