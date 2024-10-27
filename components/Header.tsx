@@ -1,7 +1,19 @@
+'use client'
+import { useAppDispatch } from '@/lib/store';
+import { setToken } from '@/store/tokenSlice';
 import Link from 'next/link';
 import React from 'react';
 
+
 function Header() {
+  const dispatch = useAppDispatch();
+
+  const exit = () => {
+    localStorage.clear();
+    const token = localStorage.getItem('token')!
+    dispatch(setToken(token))
+  }
+
   return (
     <header className="header">
       <div className="header__container">
@@ -33,7 +45,7 @@ function Header() {
           {/* <img className="logined__avatar" src="avatar.jpg" /> */}
           <div className="logined__info">Пупкин Василий</div>
           <div className="logined__actions">
-            <a className="logined__icon fa-solid fa-caret-down" href="#"></a>
+            <a className="logined__icon fa-solid fa-caret-down" href="#" onClick={exit}></a>
             <div className="logined__popup popup-elements">
               <div className="popup-elements__element">Какая-то строка</div>
               <div className="popup-elements__element">Ещё одна строка</div>

@@ -34,7 +34,8 @@
     ".next/types/**/*.ts",
     "pages/api/createUser.js",
     "store/webStorage.js",
-    "store/authSlice.ts"
+    "store/authSlice.ts",
+    "app/login/page.jsx"
   ],
   "exclude": [
     "node_modules"

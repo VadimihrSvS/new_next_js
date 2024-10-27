@@ -10,16 +10,20 @@ datasource db {
   directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
 }
 
-model SentData {
-  id        String  @id @default(cuid())
-  title     String
-  content   String?
-  }
-
 model User {
   id            String    @id @default(cuid())
   firstName     String
   lastName      String
-  role          String
+  surName       String
+  organization  String    @default("none")
+  password      String    
   }
+
+  model HourMUMG {
+  id          String    @id @default(cuid())
+  date        DateTime  
+  OstrPres    Decimal   @db.Decimal(3, 2)
+  OstrValue   Decimal   @db.Decimal(4, 2)
+  }
+
 
