@@ -14,9 +14,10 @@ model User {
   id            String    @id @default(cuid())
   firstName     String
   lastName      String
-  surName       String
+  surName       String    
   organization  String    @default("none")
   password      String    
+  isConfirmed   Boolean   @default(false)
   }
 
   model HourMUMG {

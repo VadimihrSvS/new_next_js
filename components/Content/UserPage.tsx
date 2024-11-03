@@ -1,9 +1,11 @@
 'use client'
 
+import { redirect } from "next/navigation";
 import Main from "../Main";
 import dynamic from "next/dynamic";
 
 const UserPage = () => {
+
 
 
     return (

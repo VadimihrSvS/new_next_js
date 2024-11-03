@@ -1,8 +1,9 @@
 'use client'
-import { useAppDispatch } from '@/lib/store';
+import { useAppDispatch, useAppSelector } from '@/lib/store';
 import { setToken } from '@/store/tokenSlice';
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect } from 'react';
+import { jwtDecode } from "jwt-decode";
 
 
 function Header() {
@@ -10,9 +11,25 @@ function Header() {
 
   const exit = () => {
     localStorage.clear();
-    const token = localStorage.getItem('token')!
+    const token = localStorage.getItem('token')
     dispatch(setToken(token))
   }
+  // const userSelector = useAppSelector(value => value.token.token)
+  const token = localStorage.getItem("token")
+  var decoded = { firstName: "", surName: "" };
+  if (token) {
+    decoded = jwtDecode(token)
+  }
+
+  // var decoded;
+  // useEffect(() => {
+  //   decoded = jwtDecode(localStorage.getItem("token")!)
+  //   console.log(decoded)
+  // }, [])
+  // useEffect(() => {
+  //   console.log(decoded)
+  // }, [])
+
 
   return (
     <header className="header">
@@ -43,9 +60,9 @@ function Header() {
 
         <div className="header__logined logined">
           {/* <img className="logined__avatar" src="avatar.jpg" /> */}
-          <div className="logined__info">Пупкин Василий</div>
+          <div className="logined__info">{decoded.firstName} {decoded.surName}</div>
           <div className="logined__actions">
-            <a className="logined__icon fa-solid fa-caret-down" href="#" onClick={exit}></a>
+            <Link onClick={exit} className="logined__icon fa-solid fa-caret-down" href='/login'></Link>
             <div className="logined__popup popup-elements">
               <div className="popup-elements__element">Какая-то строка</div>
               <div className="popup-elements__element">Ещё одна строка</div>

@@ -9,7 +9,7 @@ const Navbar = () => {
     const pathname = usePathname()
     return (
         <div className="navbar">
-            {pathname.includes("/MUMG") || pathname === '/' ? <MUMGNavbar></MUMGNavbar> : <></>}
+            {pathname.includes("/MUMG") ? <MUMGNavbar></MUMGNavbar> : <></>}
             {pathname.includes("/SPOR") ? <SPORNavbar></SPORNavbar> : <></>}
         </div>)
 }

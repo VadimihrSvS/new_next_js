@@ -11,38 +11,79 @@ import './auth.css'
 import dynamic from 'next/dynamic';
 import { setToken } from '@/store/tokenSlice';
 import { useRouter } from 'next/navigation';
+import { jwtDecode } from 'jwt-decode';
+import { redirect } from 'next/navigation';
 
 
 
 
 const AuthPage = () => {
-    // const router = useRouter()
+    const router = useRouter()
     // const isAuth = useSelector(value => value.token.value)
     // const navigate = useNavigate();
 
-    // const dispatch = useAppDispatch()
-    // const isAuth = useAppSelector(value => Boolean(value.token.token))
-    // let isAuth = false;
-    // React.useEffect(() => {
-    //     isAuth && router.push('/');
-    // }, []);
+    //const dispatch = useAppDispatch()
+    //const isAuth = Boolean(localStorage.getItem('token'))
+
+    const token = localStorage.getItem('token');
+    var authState;
+    if (token) {
+        authState = jwtDecode(localStorage.getItem('token'));
+    }
+    if (token && authState.isConfirmed) redirect("/")
+
+
+    React.useEffect(() => {
+        // isAuth && router.push('/');
+    }, []);
 
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
     const [errMessage, setErrMessage] = useState("");
 
-    const [surname, setSurname] = useState("");
-    const [first_name, setFirstName] = useState("");
-    const [last_name, setLastName] = useState("");
-    const [group, setGroup] = useState("SAVR");
+    const [surName, setSurname] = useState("");
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [organization, setGroup] = useState("Минтеплосети");
     const [regPassword, setRegPassword] = useState("");
     const [regConfPassword, setRegConfPassword] = useState("");
 
     const checkUser = async (auth) => {
-        // const token = await fetch("/api/createUser")
-        // console.log(token)
-        // localStorage.setItem('token', token)
-        // router.push("/")
+        if (auth) {
+            try {
+                const response = await fetch(`/api/getUser/?lastName=${userName}&password=${password}`, {
+                    method: "GET",
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                });
+                console.log(response.status)
+                if (response.status === 401) {
+                    setErrMessage(JSON.parse(await response.text()).message)
+                    return
+                }
+                const token = await response.text()
+                localStorage.setItem('token', token)
+                router.push("/")
+            } catch (e) {
+                console.log(e)
+            }
+
+        } else {
+            const response = await fetch("/api/createUser", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ organization, firstName, lastName, surName, password: regPassword, regConfPassword })
+            });
+            if (response.status === 401) {
+                setErrMessage(JSON.parse(await response.text()).message)
+            } else {
+                setErrMessage("Запрос отправлен")
+            }
+        }
+
         //dispatch(setToken(localStorage.getItem('token')));
         // try {
         //     if (auth) {
@@ -103,11 +144,10 @@ const AuthPage = () => {
                     <div>{errMessage}</div>
                 </div>
                 <div className="inputcontainer__registr _ishidden">
-                    <input className="authtext__input input__auth" value={surname} onChange={(event) => setSurname(event.target.value)} type="text" name="login" autoComplete="off" placeholder="Фамилия" />
-                    <input className="authtext__input input__auth" value={first_name} onChange={(event) => setFirstName(event.target.value)} type="text" name="login" autoComplete="off" placeholder="Имя" />
-                    <input className="authtext__input input__auth" value={last_name} onChange={(event) => setLastName(event.target.value)} type="text" name="login" autoComplete="off" placeholder="Отчество" />
-                    <select className="authtext__input input__auth" value={group} onChange={(event) => setGroup(event.target.value)}>
-                        <option value="САВР">САВР</option>
+                    <input className="authtext__input input__auth" value={lastName} onChange={(event) => setLastName(event.target.value)} type="text" name="login" autoComplete="off" placeholder="Фамилия" />
+                    <input className="authtext__input input__auth" value={firstName} onChange={(event) => setFirstName(event.target.value)} type="text" name="login" autoComplete="off" placeholder="Имя" />
+                    <input className="authtext__input input__auth" value={surName} onChange={(event) => setSurname(event.target.value)} type="text" name="login" autoComplete="off" placeholder="Отчество" />
+                    <select className="authtext__input input__auth" value={organization} onChange={(event) => setGroup(event.target.value)}>
                         <option value="Минтеплосети">Минтеплосети</option>
                         <option value="Минское УМГ">Минское УМГ</option>
                     </select>

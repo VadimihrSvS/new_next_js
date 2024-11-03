@@ -12,7 +12,6 @@ export default function MUMGHour() {
             },
             body: JSON.stringify({ name })
         })
-
         console.log(res)
     }
     return (

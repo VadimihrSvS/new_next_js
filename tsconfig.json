@@ -35,7 +35,8 @@
     "pages/api/createUser.js",
     "store/webStorage.js",
     "store/authSlice.ts",
-    "app/login/page.jsx"
+    "app/login/page.jsx",
+    "components/Header.jsx"
   ],
   "exclude": [
     "node_modules"
